@@ -27,6 +27,10 @@
     color: var(--primary-color);
   }
 
+  &:hover [data-field="image"] {
+    transform: scale(1.2);
+  }
+
   & [data-field="image"] {
     display: flex;
     align-items: center;

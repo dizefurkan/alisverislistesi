@@ -21,6 +21,9 @@
   font-weight: 400;
 
   --zIndex-sidebar: 1;
+
+  --sidebar-width: 30%;
+  --layout-padding: 24px;
 }
 
 html {
@@ -28,12 +31,11 @@ html {
 }
 
 body {
-  height: 100%;
-}
+  font-family: fantasy;
 
-body {
+  height: 100%;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--primary-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,8 +43,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  padding: 24px;
+h1 {
+  font-size: 2rem;
 }
 
 .background {

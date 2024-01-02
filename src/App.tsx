@@ -3,6 +3,7 @@ import ProductList from "./components/product-list";
 import { useApp, useList } from "./hooks";
 import { ListContext } from "./context";
 import { Sidebar } from "./components/sidebar";
+import Layout from "./components/layout";
 
 const products = [
   new ProductModel({
@@ -61,8 +62,11 @@ function App() {
   return (
     <>
       <ListContext.Provider value={_useList}>
-        <ProductList products={products} />
-        <Sidebar />
+        <Layout>
+          <h1>Alınacak Ürünleri Seç</h1>
+          <ProductList products={products} />
+          {!!_useList.products.length && <Sidebar />}
+        </Layout>
       </ListContext.Provider>
     </>
   );

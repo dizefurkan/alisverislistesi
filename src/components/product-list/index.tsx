@@ -6,6 +6,8 @@ import { ListContext } from "src/context";
 import { useContext, useEffect, useRef } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useAudio } from "src/hooks";
+import audioUrls from "src/helpers/audio-urls";
 
 type ProductListProps = {
   products: ProductModel[];
@@ -14,6 +16,9 @@ type ProductListProps = {
 function ProductList(props: ProductListProps) {
   const { products, addProduct } = useContext(ListContext);
   const [parent] = useAutoAnimate();
+  const addAudio = useAudio({
+    audioUrl: audioUrls.productClick,
+  });
 
   console.log(products);
 
@@ -29,7 +34,10 @@ function ProductList(props: ProductListProps) {
             className={style.product}
             role="button"
             tabIndex={0}
-            onClick={() => addProduct(product)}
+            onClick={() => {
+              addAudio.play();
+              addProduct(product);
+            }}
           >
             <ProductComponent product={product} />
           </li>
