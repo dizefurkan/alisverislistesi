@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ImageModel, ProductModel } from "./model";
+import ProductList from "./components/product-list";
+import { useApp, useList } from "./hooks";
+import { ListContext } from "./context";
+import { Sidebar } from "./components/sidebar";
+
+const products = [
+  new ProductModel({
+    name: "Acı Biber",
+    image: new ImageModel({
+      imageId: "/images/acibiber.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Bal Kabağı",
+    image: new ImageModel({
+      imageId: "/images/balkabagi.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Sivri biber",
+    image: new ImageModel({
+      imageId: "/images/biber.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Kabak",
+    image: new ImageModel({
+      imageId: "/images/kabak.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Çilek",
+    image: new ImageModel({
+      imageId: "/images/cilek.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Kiraz",
+    image: new ImageModel({
+      imageId: "/images/kiraz.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Patates",
+    image: new ImageModel({
+      imageId: "/images/patates.png",
+    }),
+  }),
+  new ProductModel({
+    name: "Portakal",
+    image: new ImageModel({
+      imageId: "/images/portakal.png",
+    }),
+  }),
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const { onProductSelect } = useApp();
+  const _useList = useList();
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ListContext.Provider value={_useList}>
+        <ProductList products={products} />
+        <Sidebar />
+      </ListContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
