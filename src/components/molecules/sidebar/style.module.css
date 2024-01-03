@@ -1,13 +1,17 @@
 .sidebar {
   position: fixed;
-  top: 0;
-  bottom: 0;
+  bottom: 24px;
   background-color: #fff;
   right: -30%;
   width: 30%;
   max-width: 100vw;
 
-  box-shadow: 20px 0px 20px 12px black;
+  display: flex;
+  flex-direction: column;
+
+  border-color: #000;
+  border-style: solid;
+  border-width: 4px;
 
   z-index: var(--zIndex-sidebar);
 
@@ -23,7 +27,7 @@
 
 @keyframes enter-sidebar {
   to {
-    right: 0;
+    right: 24px;
   }
 }
 

@@ -1,35 +1,33 @@
-import { ProductModel } from "src/model";
-
-import style from "./style.module.css";
-import ProductComponent from "../product";
-import { ListContext } from "src/context";
-import { useContext, useEffect, useRef } from "react";
-import autoAnimate from "@formkit/auto-animate";
+import { useContext } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useAudio } from "src/hooks";
+
+import { CategoryModel, ProductModel } from "src/model";
+import ProductComponent from "../../atoms/product";
+import { ListContext } from "src/context";
+
+import { useApp, useAudio } from "src/hooks";
 import audioUrls from "src/helpers/audio-urls";
 
+import style from "./style.module.css";
+
 type ProductListProps = {
+  categories: CategoryModel[];
   products: ProductModel[];
 };
 
 function ProductList(props: ProductListProps) {
-  const { products, addProduct } = useContext(ListContext);
+  const { products } = useApp(props);
+  const { addProduct } = useContext(ListContext);
   const [parent] = useAutoAnimate();
   const addAudio = useAudio({
     audioUrl: audioUrls.productClick,
   });
 
-  console.log(products);
-
   return (
     <ul ref={parent} className={style.productList}>
-      {props.products
-        .filter(
-          (product) => products.findIndex((p) => p.id === product.id) === -1
-        )
-        .map((product) => (
-          <li
+      {products.map((product) => (
+        <li>
+          <button
             key={product.id}
             className={style.product}
             role="button"
@@ -40,8 +38,9 @@ function ProductList(props: ProductListProps) {
             }}
           >
             <ProductComponent product={product} />
-          </li>
-        ))}
+          </button>
+        </li>
+      ))}
     </ul>
   );
 }

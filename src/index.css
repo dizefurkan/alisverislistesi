@@ -1,4 +1,20 @@
 @import "./style/reset.css";
+@import "./node_modules/nes.css/css/nes.css";
+
+html,
+body,
+pre,
+code,
+kbd,
+samp {
+  font-family: fantasy;
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .nes-btn {
+    border-image-repeat: stretch;
+  }
+}
 
 :root {
   --primary-color: #213547;

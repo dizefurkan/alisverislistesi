@@ -9,9 +9,9 @@ function Layout(props: { children: React.ReactNode }) {
   return (
     <div
       className={style.layout}
-      style={{
-        ["--sidebar-width" as string]: products.length ? undefined : "0px",
-      }}
+      // style={{
+      //   ["--sidebar-width" as string]: products.length ? undefined : "0px",
+      // }}
     >
       {props.children}
     </div>

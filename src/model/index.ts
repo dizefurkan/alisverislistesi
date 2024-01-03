@@ -29,6 +29,8 @@ export class ProductModel extends BaseModel {
   categoryId: string | null;
   brandId: string | null;
 
+  category: CategoryModel | null;
+
   constructor(data: Partial<ProductModel> = {}) {
     super(data);
 
@@ -37,14 +39,16 @@ export class ProductModel extends BaseModel {
 
     this.categoryId = data.categoryId || null;
     this.brandId = data.brandId || null;
+
+    this.category = data.category || null;
   }
 }
 
-class Brand extends BaseModel {
+class BrandModel extends BaseModel {
   name: string;
   image: ImageModel | null;
 
-  constructor(data: Brand) {
+  constructor(data: Partial<BrandModel> = {}) {
     super(data);
 
     this.name = data.name || "";
@@ -52,11 +56,11 @@ class Brand extends BaseModel {
   }
 }
 
-class Category extends BaseModel {
+export class CategoryModel extends BaseModel {
   name: string;
   image: ImageModel | null;
 
-  constructor(data: Category) {
+  constructor(data: Partial<CategoryModel> = {}) {
     super(data);
 
     this.name = data.name || "";

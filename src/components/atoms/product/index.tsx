@@ -1,4 +1,4 @@
-import { ProductModel } from "../../model";
+import { ProductModel } from "../../../model";
 
 import style from "./style.module.css";
 

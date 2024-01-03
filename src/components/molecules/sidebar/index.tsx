@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { ListContext } from "src/context";
 
 import styles from "./style.module.css";
-import ProductComponent from "../product";
+import ProductComponent from "../../atoms/product";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useAudio } from "src/hooks";
 import audioUrls from "src/helpers/audio-urls";
+import Button from "../../atoms/button";
 
 export function Sidebar() {
   const { products, removeProduct } = useContext(ListContext);
@@ -35,6 +36,8 @@ export function Sidebar() {
           </li>
         ))}
       </ul>
+
+      <Button>Alisveris Listesini Olustur</Button>
     </div>
   );
 }

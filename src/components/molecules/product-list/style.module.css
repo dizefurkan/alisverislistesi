@@ -8,5 +8,15 @@
 .product {
   cursor: pointer;
   height: 150px;
+  width: 100%;
   box-sizing: border-box;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  &:not(:focus-visible) {
+    outline: none;
+  }
 }
