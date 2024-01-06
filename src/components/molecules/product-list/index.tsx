@@ -26,9 +26,8 @@ function ProductList(props: ProductListProps) {
   return (
     <ul ref={parent} className={style.productList}>
       {products.map((product) => (
-        <li>
+        <li key={product.id}>
           <button
-            key={product.id}
             className={style.product}
             role="button"
             tabIndex={0}
