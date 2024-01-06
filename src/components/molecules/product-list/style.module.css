@@ -1,13 +1,18 @@
 .productList {
   display: grid;
 
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  
+  overflow: hidden;
+  @media (min-width: var(--screen-s)) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
 }
 
 .product {
   cursor: pointer;
-  height: 150px;
   width: 100%;
   box-sizing: border-box;
   background: transparent;
@@ -15,8 +20,12 @@
   border: none;
   padding: 0;
   margin: 0;
-
   &:not(:focus-visible) {
     outline: none;
   }
+}
+
+
+.totalProductCount {
+  
 }

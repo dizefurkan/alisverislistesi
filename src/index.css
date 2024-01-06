@@ -1,5 +1,5 @@
 @import "./style/reset.css";
-@import "./node_modules/nes.css/css/nes.css";
+@import "nes.css/css/nes.css";
 
 html,
 body,
@@ -40,7 +40,16 @@ samp {
 
   --sidebar-width: 30%;
   --layout-padding: 24px;
+
+  /* breakpoints */
+  --screen-xxs: 320px;
+  --screen-xs: 480px;
+  --screen-s: 600px;
+  --screen-m: 801px;
+  --screen-l: 1025px;
+  --screen-xl: 1281px;
 }
+
 
 html {
   height: 100%;
@@ -57,6 +66,13 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --screen-xxs: 320px;
+  --screen-xs: 480px;
+  --screen-s: 600px;
+  --screen-m: 801px;
+  --screen-l: 1025px;
+  --screen-xl: 1281px;
 }
 
 h1 {

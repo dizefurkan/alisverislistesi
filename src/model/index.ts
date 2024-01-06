@@ -44,7 +44,7 @@ export class ProductModel extends BaseModel {
   }
 }
 
-class BrandModel extends BaseModel {
+export class BrandModel extends BaseModel {
   name: string;
   image: ImageModel | null;
 
