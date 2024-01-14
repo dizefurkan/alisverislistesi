@@ -8,3 +8,6 @@ NES.css is NES-style (8bit-like) CSS Framework.
 https://nostalgic-css.github.io/NES.css/
 
 # Images
+
+Empty Image
+https://www.reddit.com/r/PixelArt/comments/117pw6z/extremely_new_to_pixel_art_and_made_a_ghost_d/?rdt=35415

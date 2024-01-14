@@ -1,22 +1,33 @@
 import { useState } from "react";
-import { ListModel, ProductModel } from "src/model";
+import { ProductModel } from "src/model";
 
 export function useList() {
-  const [products, setProducts] = useState<ProductModel[]>([]);
-  // const [list] = useState<ListModel>(new ListModel());
+  const [listProducts, setListProducts] = useState<ProductModel[]>([]);
 
-  const addProduct = (product: ProductModel) => {
-    setProducts([...products, product]);
+  const addProductToList = (product: ProductModel) => {
+    setListProducts([...listProducts, product]);
   };
 
-  const removeProduct = (productId: string) => {
-    const _products = products.filter((product) => product.id !== productId);
-    setProducts(_products);
+  const removeProductFromList = (productId: string) => {
+    const _products = listProducts.filter(
+      (product) => product.id !== productId
+    );
+    setListProducts(_products);
   };
+
+  const productCategories = [
+    ...new Set(listProducts.filter((p) => p.category).map((p) => p.category!)),
+  ];
+
+  const productsAndCategories = productCategories.map((category) => ({
+    category,
+    products: listProducts.filter((p) => p.categoryId === category.id),
+  }));
 
   return {
-    products,
-    addProduct,
-    removeProduct,
+    listProducts,
+    productsAndCategories,
+    addProductToList,
+    removeProductFromList,
   };
 }

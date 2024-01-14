@@ -14,7 +14,7 @@ function ProductComponent({ product }: { product: ProductModel }) {
   return (
     <div
       className={style.product}
-      style={{ ["--product-bg-color" as any]: rgb(0.5) }}
+      style={{ ["--product-bg-color" as string]: rgb(0.5) }}
     >
       <picture data-field="image">
         <img src={product.image?.imageId} alt={product.name} />

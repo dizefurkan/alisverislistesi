@@ -1,10 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { useList } from "src/hooks/useList";
-import { ListModel } from "src/model";
 
 type ListContextData = ReturnType<typeof useList>;
 export const ListContext = createContext<ListContextData>({
-  products: [],
-  addProduct: () => {},
-  removeProduct: () => {},
+  listProducts: [],
+  productsAndCategories: [],
+  addProductToList: () => {},
+  removeProductFromList: () => {},
 });

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ListContext } from "src/context";
+import { AppContext, ListContext } from "src/context";
 
 import styles from "./style.module.css";
 import ProductComponent from "../../../atoms/product";
@@ -11,7 +11,8 @@ import Button from "../../../atoms/button";
 // TODO - fix me
 export const List: any = React.forwardRef<HTMLDivElement, React.ReactNode>(
   (_, ref) => {
-    const { products, removeProduct } = useContext(ListContext);
+    const { listProducts, removeProductFromList } = useContext(ListContext);
+    const { setCurrentState } = useContext(AppContext);
     const [autoAnimateRef] = useAutoAnimate();
 
     const removeAudio = useAudio({
@@ -19,15 +20,15 @@ export const List: any = React.forwardRef<HTMLDivElement, React.ReactNode>(
       audioUrl: audioUrls.productRemoveFromList3,
     });
 
-    if (!products.length) return null;
+    if (!listProducts.length) return null;
 
     return (
       <div ref={ref} className={styles.sidebar}>
         <h2 className={styles.title}>
-          Listende {`${products.length}`} ürün var
+          Listende {`${listProducts.length}`} ürün var
         </h2>
         <ul ref={autoAnimateRef} className={styles.products}>
-          {products.map((product) => (
+          {listProducts.map((product) => (
             <li
               key={product.id}
               className={styles.product}
@@ -35,7 +36,7 @@ export const List: any = React.forwardRef<HTMLDivElement, React.ReactNode>(
               tabIndex={0}
               onClick={() => {
                 removeAudio.play();
-                removeProduct(product.id);
+                removeProductFromList(product.id);
               }}
             >
               <ProductComponent product={product} />
@@ -43,7 +44,13 @@ export const List: any = React.forwardRef<HTMLDivElement, React.ReactNode>(
           ))}
         </ul>
 
-        <Button>Alisveris Listesini Olustur</Button>
+        <Button
+          onClick={() => {
+            setCurrentState("shopping");
+          }}
+        >
+          Alisveris Listesini Olustur
+        </Button>
       </div>
     );
   }

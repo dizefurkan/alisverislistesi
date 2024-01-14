@@ -9,6 +9,8 @@ const C_ID = {
   BakedGoods: getId(),
   MilkDairy: getId(),
   Snacks: getId(),
+  PersonalCare: getId(),
+  HomeCare: getId(),
 };
 
 export const categories = [
@@ -17,66 +19,100 @@ export const categories = [
     name: "Meyve & Sebze",
   }),
   new CategoryModel({
+    id: C_ID.MilkDairy, // TODO
+    name: "Süt ve Süt Ürünleri",
+  }),
+  new CategoryModel({
+    id: C_ID.BakedGoods, // TODO
+    name: "Unlu Mamüller",
+  }),
+  new CategoryModel({
     id: C_ID.Beverages, // TODO
     name: "İçecekler",
   }),
 ];
 
 export const products = [
-  new ProductModel({
+  {
     name: "Acı Biber",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/acibiber.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/acibiber.png",
+  },
+  {
     name: "Bal Kabağı",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/balkabagi.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/balkabagi.png",
+  },
+  {
     name: "Sivri biber",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/biber.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/biber.png",
+  },
+  {
     name: "Kabak",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/kabak.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/kabak.png",
+  },
+  {
     name: "Çilek",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/cilek.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/cilek.png",
+  },
+  {
     name: "Kiraz",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/kiraz.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/kiraz.png",
+  },
+  {
     name: "Patates",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/patates.png",
-    }),
-  }),
-  new ProductModel({
+    imageId: "/images/patates.png",
+  },
+  {
     name: "Portakal",
     categoryId: C_ID.FruitsVeg,
-    image: new ImageModel({
-      imageId: "/images/portakal.png",
-    }),
-  }),
-];
+    imageId: "/images/portakal.png",
+  },
+  {
+    name: "Süt",
+    categoryId: C_ID.MilkDairy,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Soda",
+    categoryId: C_ID.Beverages,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Meyvesuyu",
+    categoryId: C_ID.Beverages,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Fındık Ezmesi",
+    categoryId: C_ID.Snacks,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Tuzlu Çekirdek",
+    categoryId: C_ID.Snacks,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Şampuan",
+    categoryId: C_ID.PersonalCare,
+    imageId: "/images/n_a.png",
+  },
+  {
+    name: "Deterjan",
+    categoryId: C_ID.HomeCare,
+    imageId: "/images/n_a.png",
+  },
+].map(
+  (data) =>
+    new ProductModel({
+      name: data.name,
+      categoryId: data.categoryId,
+      image: new ImageModel({ imageId: data.imageId }),
+    })
+);

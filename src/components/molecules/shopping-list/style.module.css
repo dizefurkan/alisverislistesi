@@ -1,0 +1,6 @@
+.list { 
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
