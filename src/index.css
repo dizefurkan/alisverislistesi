@@ -1,13 +1,15 @@
 @import "./style/reset.css";
 @import "nes.css/css/nes.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 html,
 body,
 pre,
 code,
 kbd,
 samp {
-  font-family: fantasy;
+  font-family: "Open Sans", sans-serif;
 }
 
 @media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
@@ -34,15 +36,16 @@ samp {
   --color-5: #bf1717;
 
   font-size: 16px;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   --zIndex-sidebar: 2;
   --zIndex-productList-category: 1;
+  --zIndex-productList-categoriesTab: 2;
 
   --sidebar-width: 30%;
-  --layout-padding: 24px;
+  --layout-padding: 24px 12px;
 
   /* breakpoints */
   --screen-xxs: 320px;
@@ -53,21 +56,20 @@ samp {
   --screen-xl: 1281px;
 }
 
-
 html {
   height: 100%;
 }
 
 body {
-  font-family: fantasy;
-
   height: 100%;
+  font-size: 16px;
   color-scheme: light dark;
   color: var(--primary-color);
 
   background-color: var(--background-color);
 
   font-synthesis: none;
+  font-family: "Open Sans", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,6 +80,11 @@ body {
   --screen-m: 801px;
   --screen-l: 1025px;
   --screen-xl: 1281px;
+
+  @media (max-width: var(--screen-s)) {
+    font-size: 14px;
+    background-color: red;
+  }
 }
 
 h1 {

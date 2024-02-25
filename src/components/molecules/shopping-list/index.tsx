@@ -31,6 +31,7 @@ function ShoppingList() {
       </section>
 
       <Button
+        block
         onClick={() => {
           setCurrentState("select");
         }}

@@ -71,6 +71,7 @@ export function useProductList(props: Props) {
     productsAndCategories,
     totalProductsCount,
     listRef,
+    categories: props.categories,
     parentRef,
     addProductToList,
     addAudio,

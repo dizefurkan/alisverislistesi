@@ -3,14 +3,15 @@ import { CategoryModel, ImageModel, ProductModel } from "src/model";
 let id = 0;
 const getId = () => "" + id++;
 const C_ID = {
-  Beverages: getId(),
-  MeatPoultryFish: getId(),
   FruitsVeg: getId(),
-  BakedGoods: getId(),
   MilkDairy: getId(),
+  BakedGoods: getId(),
+  Beverages: getId(),
+  HomeCare: getId(),
+
+  MeatPoultryFish: getId(),
   Snacks: getId(),
   PersonalCare: getId(),
-  HomeCare: getId(),
 };
 
 export const categories = [
@@ -29,6 +30,14 @@ export const categories = [
   new CategoryModel({
     id: C_ID.Beverages, // TODO
     name: "İçecekler",
+  }),
+  new CategoryModel({
+    id: C_ID.Snacks, // TODO
+    name: "Atıştırmalık",
+  }),
+  new CategoryModel({
+    id: C_ID.HomeCare, // TODO
+    name: "Ev Bakım",
   }),
 ];
 

@@ -6,7 +6,11 @@ type Props = {
 
 function Button(props: Props) {
   return (
-    <button className="nes-btn" onClick={props.onClick}>
+    <button
+      className="nes-btn"
+      style={{ width: props.block ? "100%" : "" }}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
