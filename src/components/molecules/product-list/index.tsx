@@ -1,3 +1,5 @@
+import { createContext, useContext, useEffect, useState } from "react";
+
 import { CategoryModel, ProductModel } from "src/model";
 import ProductComponent from "../../atoms/product";
 
@@ -6,7 +8,6 @@ import { useProductList } from "src/hooks";
 
 import style from "./style.module.css";
 import { Header } from "src/components/atoms";
-import { createContext, useContext, useEffect, useState } from "react";
 import Tabs from "src/components/atoms/tabs";
 import { AppContext } from "src/context";
 

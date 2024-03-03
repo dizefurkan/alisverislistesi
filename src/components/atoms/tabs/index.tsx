@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
 
 import style from "./style.module.css";
 
@@ -13,8 +13,22 @@ type Props = {
 };
 
 function Tabs(props: Props) {
+  const tabsRef = createRef<HTMLUListElement>();
+
+  useEffect(() => {
+    let activeElement: HTMLElement | null = null;
+    tabsRef.current?.childNodes.forEach((c) => {
+      if ((c as HTMLElement).getAttribute("aria-selected") === "true") {
+        activeElement = c as HTMLElement;
+      }
+    });
+
+    if (!activeElement) return;
+    (activeElement as HTMLElement).scrollIntoView();
+  }, [props.items.findIndex((item) => item.selected === true)]);
+
   return (
-    <ul className={style.tabs}>
+    <ul ref={tabsRef} className={style.tabs}>
       {props.items.map((item, index) => (
         <TabItem key={index} {...item} />
       ))}
