@@ -17,6 +17,8 @@ type ProductsCategoryPair = {
 };
 
 export function useProductList(props: Props) {
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+
   const { listProducts } = useContext(ListContext);
   const [productsAndCategories, setProducts] = useState<ProductsCategoryPair[]>(
     []
@@ -68,6 +70,9 @@ export function useProductList(props: Props) {
   );
 
   return {
+    selectedCategoryIndex,
+    setSelectedCategoryIndex,
+
     productsAndCategories,
     totalProductsCount,
     listRef,

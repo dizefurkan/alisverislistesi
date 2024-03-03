@@ -6,8 +6,9 @@ import { useProductList } from "src/hooks";
 
 import style from "./style.module.css";
 import { Header } from "src/components/atoms";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Tabs from "src/components/atoms/tabs";
+import { AppContext } from "src/context";
 
 type ProductListContextType = ReturnType<typeof useProductList>;
 const ProductListContext = createContext<ProductListContextType>(
@@ -40,10 +41,26 @@ function ProductList(props: ProductListProps) {
 export default ProductList;
 
 const Categories = () => {
-  const { categories, productsAndCategories } = useProductListContext();
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+  const { layoutRef } = useContext(AppContext);
+  const {
+    categories,
+    selectedCategoryIndex,
+    productsAndCategories,
+    setSelectedCategoryIndex,
+  } = useProductListContext();
+
   const onTabClick = (index: number) => {
     setSelectedCategoryIndex(index);
+
+    const targetElement = layoutRef.current?.querySelector<HTMLElement>(
+      `#category-${index}`
+    );
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
   };
 
   return (
@@ -61,6 +78,9 @@ const Categories = () => {
 
 const Products = () => {
   const {
+    selectedCategoryIndex,
+    setSelectedCategoryIndex,
+
     listRef,
     parentRef,
     productsAndCategories,
@@ -72,14 +92,25 @@ const Products = () => {
   return (
     <div style={{ paddingBottom: listRef.current?.offsetHeight + "px" }}>
       <ul ref={parentRef}>
-        {productsAndCategories.map((data) => (
+        {productsAndCategories.map((data, index) => (
           <details
-            open
+            open={selectedCategoryIndex === index}
+            id={"category-" + index}
             key={data.category.id}
             className={style.productsAndCategory}
+            onClick={(e) => {
+              e.preventDefault();
+              setSelectedCategoryIndex(index);
+            }}
           >
             <summary>
-              <h2 className={style.category}>
+              <h2
+                className={style.category}
+                style={{
+                  fontWeight:
+                    selectedCategoryIndex === index ? "bold" : undefined,
+                }}
+              >
                 {data.category.name} ({data.products.length})
               </h2>
             </summary>
