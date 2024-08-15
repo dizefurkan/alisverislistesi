@@ -4,9 +4,6 @@
 
 # CSS
 
-NES.css is NES-style (8bit-like) CSS Framework.
-https://nostalgic-css.github.io/NES.css/
-
 # Images
 
 Empty Image

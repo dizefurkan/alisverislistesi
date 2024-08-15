@@ -24,7 +24,9 @@ function Tabs(props: Props) {
     });
 
     if (!activeElement) return;
-    (activeElement as HTMLElement).scrollIntoView();
+    (activeElement as HTMLElement).scrollIntoView({
+      behavior: "smooth",
+    });
   }, [props.items.findIndex((item) => item.selected === true)]);
 
   return (

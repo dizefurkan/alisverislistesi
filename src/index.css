@@ -1,5 +1,4 @@
 @import "./style/reset.css";
-@import "nes.css/css/nes.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -12,40 +11,60 @@ samp {
   font-family: "Open Sans", sans-serif;
 }
 
-@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-  .nes-btn {
-    border-image-repeat: stretch;
-  }
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 :root {
-  --primary-color: #213547;
-  --secondary-color: #f0f1df;
+  --radiant-orange: #ff4f18;
+  --pure-white: #ffffff;
+  --fog-gray: #f2f4f7;
+  --coal-black: #141517;
 
-  --border-color: #f9f9f9;
-
-  --background-color: #f4f4f4;
+  --primary-color: var(--coal-black);
+  --secondary-color: var(--radiant-orange);
+  --border-color: var(--fog-gray);
+  --background-color: var(--pure-white);
 
   --border-radius: 4px;
 
   /* Color Theme Swatches in Hex */
-  --color-1: #04bf7b;
-  --color-2: #027333;
-  --color-3: #014017;
-  --color-4: #f29f05;
-  --color-5: #bf1717;
 
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /** font-size and line-height */
+  --text-xs-fs: 0.75rem; /* 12px */
+  --text-xs-lh: 1rem; /* 16px */
+
+  --text-sm-fs: 0.875rem; /* 14px */
+  --text-sm-lh: 1.25rem; /* 20px */
+
+  --text-base-fs: 1rem; /* 16px */
+  --text-base-lh: 1.5rem; /* 24px */
+
+  --text-lg-fs: 1.125rem; /* 18px */
+  --text-lg-lh: 1.75rem; /* 28px */
+
+  --text-xl-fs: 1.25rem; /* 20px */
+  --text-xl-lh: 1.75rem; /* 28px */
+  /*  */
+
   --zIndex-sidebar: 2;
   --zIndex-productList-category: 1;
   --zIndex-productList-categoriesTab: 2;
 
   --sidebar-width: 30%;
-  --layout-padding: 24px 12px;
+  --layout-padding-x: 12px;
+  --layout-padding-y: 12px;
+  --layout-padding: var(--layout-padding-x) var(--layout-padding-y);
 
   /* breakpoints */
   --screen-xxs: 320px;
@@ -62,7 +81,7 @@ html {
 
 body {
   height: 100%;
-  font-size: 16px;
+  font-size: var(--text-base-fs);
   color-scheme: light dark;
   color: var(--primary-color);
 
@@ -88,7 +107,8 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: var(--text-xl-fs);
+  line-height: var(--text-xl-lh);
 }
 
 @media (prefers-color-scheme: light) {

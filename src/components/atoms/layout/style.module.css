@@ -1,7 +1,7 @@
 .layout {
   /* width: calc(100vw - var(--sidebar-width) - var(--layout-padding) * 2); */
   width: 100%;
-  padding: 24px 12px;
+  padding: var(--layout-padding);
 
   transition: width 0.3s ease-in-out;
 }

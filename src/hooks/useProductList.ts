@@ -18,7 +18,7 @@ type ProductsCategoryPair = {
 
 export function useProductList(props: Props) {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
-
+  const [searchValue] = useState();
   const { listProducts } = useContext(ListContext);
   const [productsAndCategories, setProducts] = useState<ProductsCategoryPair[]>(
     []

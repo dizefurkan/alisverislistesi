@@ -10,14 +10,16 @@ function App() {
   const _useList = useList();
   const _useApp = useApp();
 
+  const currentState = _useApp.currentState;
+
   return (
     <AppContext.Provider value={_useApp}>
       <ListContext.Provider value={_useList}>
         <Layout>
-          {_useApp.currentState === "select" && (
+          {currentState === "select" && (
             <ProductList products={products} categories={categories} />
           )}
-          {_useApp.currentState === "shopping" && <ShoppingList />}
+          {currentState === "shopping" && <ShoppingList />}
         </Layout>
       </ListContext.Provider>
     </AppContext.Provider>

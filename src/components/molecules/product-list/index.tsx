@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { CategoryModel, ProductModel } from "src/model";
 import ProductComponent from "../../atoms/product";
 
-import { List } from "./list";
+import { Basket } from "./basket";
 import { useProductList } from "src/hooks";
 
 import style from "./style.module.css";
@@ -33,7 +33,7 @@ function ProductList(props: ProductListProps) {
     <ProductListContext.Provider value={contextValue}>
       <Header title="Alınacak Ürünleri Seç" />
       <Categories />
-      <List ref={contextValue.listRef} />
+      <Basket ref={contextValue.listRef} />
       <Products />
     </ProductListContext.Provider>
   );

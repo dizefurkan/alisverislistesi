@@ -35,6 +35,12 @@
 }
 
 .productsAndCategory {
+  margin-bottom: 0.5rem;
+
+  & summary {
+    margin-bottom: 0.5rem;
+  }
+
   & summary::-webkit-details-marker,
   & summary::marker {
     display: none;
@@ -54,4 +60,5 @@
   top: 12px;
   background-color: #fff;
   z-index: var(--zIndex-productList-categoriesTab);
+  margin-bottom: 1rem;
 }

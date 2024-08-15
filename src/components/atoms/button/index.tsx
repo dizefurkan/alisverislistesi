@@ -1,5 +1,9 @@
+import React from "react";
+import styles from "./style.module.css";
+
 type Props = {
   block?: boolean;
+  style?: React.CSSProperties;
   children: React.ReactNode;
   onClick?: () => void;
 };
@@ -7,8 +11,8 @@ type Props = {
 function Button(props: Props) {
   return (
     <button
-      className="nes-btn"
-      style={{ width: props.block ? "100%" : "" }}
+      className={styles.button}
+      style={{ width: props.block ? "100%" : "", ...props.style }}
       onClick={props.onClick}
     >
       {props.children}
