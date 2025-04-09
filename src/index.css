@@ -1,6 +1,6 @@
 @import "./style/reset.css";
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 html,
 body,
@@ -8,7 +8,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: "Open Sans", sans-serif;
+  font-family: Inter;
 }
 
 html {
@@ -23,7 +23,7 @@ html {
 :root {
   --radiant-orange: #ff4f18;
   --pure-white: #ffffff;
-  --fog-gray: #f2f4f7;
+  --fog-gray: #f2f3fa;
   --coal-black: #141517;
 
   --primary-color: var(--coal-black);

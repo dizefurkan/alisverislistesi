@@ -34,3 +34,8 @@ Bu tasarım sadece bir örnektir. Kullanıcılarınızın ihtiyaçlarına ve ter
 iPhone 12 için tasarlanmıştır, ancak diğer iPhone modelleri için de uyarlanabilir.
 Tasarımda renk paleti, tipografi ve görsel öğeler markanızın kimliğine uygun şekilde değiştirilebilir.
 Umarım bu tasarım size yardımcı olur.
+
+Tasarimlar
+
+- https://dribbble.com/shots/15601190-Grocery-app-categories-list-of-products
+-

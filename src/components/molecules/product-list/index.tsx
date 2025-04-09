@@ -32,7 +32,7 @@ function ProductList(props: ProductListProps) {
   return (
     <ProductListContext.Provider value={contextValue}>
       <Header title="Alınacak Ürünleri Seç" />
-      <Categories />
+      <CategoriesAndProducts />
       <Basket ref={contextValue.listRef} />
       <Products />
     </ProductListContext.Provider>
@@ -41,7 +41,7 @@ function ProductList(props: ProductListProps) {
 
 export default ProductList;
 
-const Categories = () => {
+const CategoriesAndProducts = () => {
   const { layoutRef } = useContext(AppContext);
   const {
     categories,
@@ -127,7 +127,7 @@ const Products = () => {
                         addProductToList(product);
                       }}
                     >
-                      <ProductComponent product={product} />
+                      <ProductComponent showAddButton product={product} />
                     </button>
                   </li>
                 ))}
